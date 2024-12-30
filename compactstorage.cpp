@@ -184,8 +184,9 @@ bool CompactStorage::readBool()
 char* CompactStorage::getContent(int & length)
 {
 	char* result = new char[m_numBytes];
-	*result = *m_bytes;
-
+	//*result = *m_bytes;
+	memcpy(result, m_bytes, m_numBytes);
+	
 	length = m_numBytes;
 
 	return result;
